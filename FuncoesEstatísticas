@@ -1,0 +1,66 @@
+#https://www.hr-survey.com/360Feedback.htm --> modelos de relatórios de feedback 360
+
+import scipy
+import numpy
+import matplotlib
+import pandas
+import sklearn
+
+# Load libraries
+from pandas.plotting import scatter_matrix
+import matplotlib.pyplot as plt
+from sklearn import model_selection
+from sklearn.metrics import classification_report
+from sklearn.metrics import confusion_matrix
+from sklearn.metrics import accuracy_score
+from sklearn.linear_model import LogisticRegression
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
+from sklearn.naive_bayes import GaussianNB
+from sklearn.svm import SVC
+
+# Load dataset
+form = "teste3.csv"
+names = ['sepal-length', 'sepal-width', 'petal-length', 'petal-width', 'class']
+dataset2 = pandas.read_csv(form, names=names)
+
+url = "https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data"
+names = ['sepal-length', 'sepal-width', 'petal-length', 'petal-width', 'class']
+dataset = pandas.read_csv(url, names=names)
+
+
+#data information:
+#-------------------------------------------------------------------------
+
+print(dataset.shape) # dimensions (nrows, nlines) 
+#print(dataset2.head(10)
+print(dataset.head(20)) #visualizaton of the data
+print(dataset.describe())
+#print(dataset.groupby('class').describe()) --> realizando o describe por agrupamento de classe
+print("\nTamanho das classes:\n" ,dataset.groupby('class').size()) #--> informa os tamanhos das classes de dados
+
+#describe([percentiles, include, exclude]) --> parâmetros de entrada da função
+#include (default = None --> in this case the result will include all numeric columns.) -->
+#retorno:
+#cont -- contagem, num de ocorrências
+#mean - média aritimética
+#std -- desvio padrão
+#min/max - valores de mínimo e máximo
+#25%, 50%, 75% - percentiles of data --> o n-ésimo maior valor do conjunto de dados, onde n é o valor do percentual
+
+#------------------------------------------------------------------
+
+#data graphic visualization:
+
+#--------------------------------------------------------------------
+
+#Univariate plots:
+
+# box and whisker plots
+dataset.groupby('class').plot(kind='line', subplots=True, layout=(2,2), sharex=False, sharey=False)
+#plt.show()
+
+# histograms
+dataset.hist()
+#plt.show()
