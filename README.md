@@ -3,5 +3,5 @@ This repository will be used for the implementation of a Python project for data
 
 Utilizar como banco de dados o arquivo .csv "bancodedados_textos.csv";
 
-Última versão: "AnálisedeDados_Feedback360_16_07_2018
+Utilizar a versão: "AnálisedeDados_Feedback360_16_07_2018.ipbn" (mais atual)
 
